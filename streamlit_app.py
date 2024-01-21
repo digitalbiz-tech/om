@@ -8,4 +8,4 @@ df = conn.read()
 
 # Print results.
 for row in df.itertuples():
-    st.write(f"{row.OrderContact}")
+    st.write(f"{row.OrderContact,row['Order Number'] }")
