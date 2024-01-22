@@ -11,7 +11,7 @@ df = df[df['Order Number'] != " "]
 st.write("Here's the list of the Orders made so far")
 edited_df = st.data_editor(
     df,
-    width = 500,
+    width = 1000,
     column_config={
         "Order Number": st.column_config.NumberColumn(
             "Order ID",
