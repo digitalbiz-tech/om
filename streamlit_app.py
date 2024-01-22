@@ -5,7 +5,7 @@ import pandas as pd
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
 df = conn.read(worksheet="Order", usecols=[1,2,3,4,5,6,7,8],ttl=5)
-df = df[df['Order Number'] != " "]
+#df = df[df['Order Number'] != " "]
 #df = df.set_index(df.columns[0])
 
 tab1, tab2, tab3 = st.tabs(["Order", "Order Details", "Catalog"])
