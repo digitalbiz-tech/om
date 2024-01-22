@@ -6,7 +6,7 @@ import pandas as pd
 conn = st.connection("gsheets", type=GSheetsConnection)
 df = conn.read()
 df = df[df['Order Number'] != " "]
-df = df.set_index(df.columns[0])
+#df = df.set_index(df.columns[0])
 
 tab1, tab2, tab3 = st.tabs(["Order", "Order Details", "Catalog"])
 tab1.write("Here's the list of the Orders made so far")
