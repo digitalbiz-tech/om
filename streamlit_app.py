@@ -7,7 +7,7 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 df = conn.read()
 
-df = df[df['Order Number'] != 'None']
+df = df[df['Order Number'] != NaN]
 st.write("Here's the list of the Orders made so far")
 edited_df = st.experimental_data_editor(df)
 
