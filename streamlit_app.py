@@ -24,7 +24,6 @@ edited_df = tab1.data_editor(
         "Order Status": st.column_config.SelectboxColumn(
             "Status of your Order",
             help="Order status",
-            width="small",
             options=[
                 "Submitted",
                 "Ready For Collection",
@@ -37,14 +36,12 @@ edited_df = tab1.data_editor(
       "OrderContact": st.column_config.NumberColumn(
             "OrderContact",
             help="Order Mobile Number",
-            width="small",
             format="%d",
             disabled = True,
         ),
         "Order Type": st.column_config.SelectboxColumn(
             "Type of your order",
             help="Order Type",
-            width="medium",
             options=[
                 "Sample",
                 "Actual",
@@ -55,7 +52,6 @@ edited_df = tab1.data_editor(
         "Order By": st.column_config.TextColumn(
             "Person who has made the order",
             help="Order By",
-            width="medium",
             disabled=True,
         ),
         
