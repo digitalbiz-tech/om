@@ -4,12 +4,12 @@ import pandas as pd
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
-
 df = conn.read()
-
 df = df[df['Order Number'] != " "]
-st.write("Here's the list of the Orders made so far")
-edited_df = st.data_editor(
+
+tab1, tab2, tab3 = st.tabs(["Order", "Order Details", "Catalog"])
+tab1.write("Here's the list of the Orders made so far")
+edited_df = tab1.data_editor(
     df,
     width = 1000,
     column_config={
