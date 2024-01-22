@@ -24,7 +24,7 @@ edited_df = st.data_editor(
                 "Closed",
             ],
             required=True,
-        )
+        ),
         "Order Date": "Ordered Date",
       "OrderContact": "Ordered By",
       "Order Type": "Order Type",
