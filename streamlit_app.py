@@ -12,7 +12,7 @@ tab1, tab2, tab3 = st.tabs(["Order", "Order Details", "Catalog"])
 tab1.write("Here's the list of the Orders made so far")
 edited_df = tab1.data_editor(
     df,
-    width = 1000,
+    width = 1500,
     column_config={
         "Order Number": st.column_config.NumberColumn(
             "Order ID",
