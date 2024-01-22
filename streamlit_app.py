@@ -6,6 +6,7 @@ import pandas as pd
 conn = st.connection("gsheets", type=GSheetsConnection)
 df = conn.read()
 df = df[df['Order Number'] != " "]
+df = df.set_index(df.columns[0])
 
 tab1, tab2, tab3 = st.tabs(["Order", "Order Details", "Catalog"])
 tab1.write("Here's the list of the Orders made so far")
@@ -63,6 +64,7 @@ edited_df = tab1.data_editor(
     },
     disabled=["Order Date", "OrderContact", "Notes"],
     hide_index=True,
+    ttl=5,
 )
 
 conn.update(worksheet="Order", data=edited_df)
