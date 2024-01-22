@@ -25,14 +25,25 @@ edited_df = st.data_editor(
             ],
             required=True,
         ),
-        "Order Date": "Ordered Date",
+      "Order Date": "Ordered Date",
       "OrderContact": "Ordered By",
       "Order Type": "Order Type",
+
+        "Order Type": st.column_config.SelectboxColumn(
+            "Type of your order",
+            help="Order Type",
+            width="medium",
+            options=[
+                "Sample",
+                "Actual",
+            ],
+            required=True,
+        ),
+        
       "Expected Order Date": "Expected Delivery date",
       "Notes": "Notes",
-
     },
-    disabled=["Notes"],
+    disabled=["Order Date", "OrderContact", "Notes"],
     hide_index=True,
 )
 
