@@ -26,8 +26,7 @@ edited_df = st.data_editor(
             required=True,
         ),
       "Order Date": "Ordered Date",
-      "OrderContact": "Ordered By",
-      "Order Type": "Order Type",
+      "OrderContact": "OrderContact",
 
         "Order Type": st.column_config.SelectboxColumn(
             "Type of your order",
