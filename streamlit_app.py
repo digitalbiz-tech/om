@@ -15,14 +15,14 @@ edited_df = st.data_editor(
         "Order Number": st.column_config.NumberColumn(
             "Order ID",
             help="Order ID",
-            width="medium",
+            width="small",
             format="%d",
             disabled = True,
         ),
         "Order Status": st.column_config.SelectboxColumn(
             "Status of your Order",
             help="Order status",
-            width="medium",
+            width="small",
             options=[
                 "Submitted",
                 "Ready For Collection",
@@ -35,7 +35,7 @@ edited_df = st.data_editor(
       "OrderContact": st.column_config.NumberColumn(
             "OrderContact",
             help="Order Mobile Number",
-            width="medium",
+            width="small",
             format="%d",
             disabled = True,
         ),
@@ -48,6 +48,13 @@ edited_df = st.data_editor(
                 "Actual",
             ],
             required=True,
+        ),
+    
+        "Order By": st.column_config.TextColumn(
+            "Person who has made the order",
+            help="Order By",
+            width="medium",
+            disabled=True,
         ),
         
       "Expected Order Date": "Expected Delivery date",
