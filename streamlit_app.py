@@ -64,7 +64,7 @@ edited_df = st.data_editor(
     hide_index=True,
 )
 
-conn.update(edited_df)
+conn.update(data=edited_df)
 # Print results.
 #for row in df.itertuples():
 #    st.write(f"{row.OrderContact}")
