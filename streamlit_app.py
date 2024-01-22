@@ -4,7 +4,7 @@ import pandas as pd
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
-df = conn.read(worksheet="Order", usecols=[1,2,3,4,5,6,7],ttl=5)
+df = conn.read(worksheet="Order", usecols=[0,1,2,3,4,5,6,7],ttl=5)
 #df = df[df['Order Number'] != " "]
 #df = df.set_index(df.columns[0])
 
