@@ -12,7 +12,13 @@ st.write("Here's the list of the Orders made so far")
 edited_df = st.data_editor(
     df,
     column_config={
-        "Order Number": "Order ID",
+        "Order Number": st.column_config.NumberColumn(
+            "Order ID",
+            help="Order ID",
+            width="medium",
+            format="%d",
+            disabled = True,
+        ),
         "Order Status": st.column_config.SelectboxColumn(
             "Status of your Order",
             help="Order status",
