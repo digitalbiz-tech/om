@@ -64,7 +64,6 @@ edited_df = tab1.data_editor(
     },
     disabled=["Order Date", "OrderContact", "Notes"],
     hide_index=True,
-    ttl=5,
 )
 
 conn.update(worksheet="Order", data=edited_df)
