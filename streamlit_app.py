@@ -5,7 +5,7 @@ import pandas as pd
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
 df = conn.read(worksheet="Order", usecols=[0,1,2,3,4,5,6,7,8],ttl=5)
-order_detail_df = conn.read(worksheet="OrderDetails", usecols=[0,1,2,3,4,5],ttl=5)
+order_detail_df = conn.read(worksheet="OrderDetails", usecols=[0,1,2,3,4,5,6,7,8],ttl=5)
 #order_detail_df = order_detail_df.style.highlight_null(props="color: transparent;") 
 
 #df = df[df['Order Number'] != " "]
@@ -102,7 +102,18 @@ edited_df = tab1.data_editor(
             help="Order By",
             disabled=True,
         ),
-        
+      "Order Quantity": st.column_config.NumberColumn(
+            "Order Quantity",
+            help="Order Quantity",
+            format="%d",
+            disabled = True,
+        ),
+          "Order Amount": st.column_config.NumberColumn(
+            "Order Amount",
+            help="Order Amount",
+            format="£%d",
+            disabled = True,
+        ),    
       "Expected Order Date": "Expected Delivery date",
       "Notes": None,
         "WA_MID": None,
