@@ -4,7 +4,7 @@ import pandas as pd
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
-df = conn.read(worksheet="Order", usecols=[0,1,2,3,4,5,6,7],ttl=5)
+df = conn.read(worksheet="Order", usecols=[0,1,2,3,4,5,6,7,8],ttl=5)
 #df = df[df['Order Number'] != " "]
 #df = df.set_index(df.columns[0])
 
@@ -57,6 +57,7 @@ edited_df = tab1.data_editor(
         
       "Expected Order Date": "Expected Delivery date",
       "Notes": "Notes",
+        "WA_MID": "WA_MID",
     },
     disabled=["Order Date", "OrderContact", "Notes"],
     hide_index=True,
