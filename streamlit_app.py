@@ -5,10 +5,15 @@ import pandas as pd
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
 df = conn.read(worksheet="Order", usecols=[0,1,2,3,4,5,6,7,8],ttl=5)
+order_detail_df = conn.read(worksheet="OrderDetails", usecols=[0,1,2,3,4,5,6],ttl=5)
+
 #df = df[df['Order Number'] != " "]
 #df = df.set_index(df.columns[0])
 
 tab1, tab2, tab3 = st.tabs(["Order", "Order Details", "Catalog"])
+tab2.write("Details of Order")
+tab2.dataframe(order_detail_df)
+
 tab1.write("Here's the list of the Orders made so far")
 edited_df = tab1.data_editor(
     df,
