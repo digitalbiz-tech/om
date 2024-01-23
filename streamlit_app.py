@@ -114,12 +114,22 @@ edited_df = tab1.data_editor(
             format="£%d",
             disabled = True,
         ),    
-      "Expected Order Date": "Expected Delivery date",
-      "Notes": "Notes",
-        "WA_MID": "WA_MID",
+      "Expected Order Date": st.column_config.TextColumn(
+            "Expected Order Date",
+            help="Expected Order Date",
+            disabled=True,
+        ),
+      "Notes": st.column_config.TextColumn(
+            "Notes",
+            help="Notes",
+            disabled=True,
+        ),
+        "WA_MID": st.column_config.TextColumn(
+            "WA_MID",
+            help="WA_MID",
+            disabled=True,
+        ),
     },
-    disabled=["Order Date", "OrderContact", "Notes"],
-    hide_index=True,
 )
 
 conn.update(worksheet="Order", data=edited_df)
