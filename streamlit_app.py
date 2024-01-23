@@ -104,8 +104,8 @@ edited_df = tab1.data_editor(
         ),
         
       "Expected Order Date": "Expected Delivery date",
-      "Notes": "Notes",
-        "WA_MID": "WA_MID",
+      "Notes": None,
+        "WA_MID": None,
     },
     disabled=["Order Date", "OrderContact", "Notes"],
     hide_index=True,
