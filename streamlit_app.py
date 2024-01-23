@@ -12,7 +12,49 @@ order_detail_df = conn.read(worksheet="OrderDetails", usecols=[0,1,2,3,4,5,6],tt
 
 tab1, tab2, tab3 = st.tabs(["Order", "Order Details", "Catalog"])
 tab2.write("Details of Order")
-tab2.dataframe(order_detail_df)
+tab2.dataframe(order_detail_df,
+                  column_config={
+        "Order Number": st.column_config.NumberColumn(
+            "Order ID",
+            help="Order ID",
+            width="small",
+            format="%d",
+            disabled = True,
+        ),
+        "Product CatalogID": st.column_config.TextColumn(
+            "CatalogID",
+            help="WhatsApp Product Catalog ID",
+        disabled = True,        
+        ),
+
+        "OrderText": st.column_config.TextColumn(
+            "Title",
+            help="WhatsApp Product Catalog ID",
+        disabled = True,        
+        ),
+        "product_retailer_id": st.column_config.TextColumn(
+            "Product ID",
+            help="WhatsApp Product ID",
+        disabled = True,
+        ),
+        "quantity": st.column_config.NumberColumn(
+            "Quantity",
+            help="Quantity",
+            width="small",
+            format="%d",
+            disabled = True,
+        ),
+        "item_price": st.column_config.NumberColumn(
+            "Price",
+            help="Price",
+            width="small",
+            format="£%d",
+            disabled = True,
+        ),
+    
+    },
+    hide_index=True
+)
 
 tab1.write("Here's the list of the Orders made so far")
 edited_df = tab1.data_editor(
