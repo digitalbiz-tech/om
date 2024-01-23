@@ -122,7 +122,7 @@ edited_df = tab1.data_editor(
     hide_index=True,
 )
 
-#conn.update(worksheet="Order", data=edited_df)
+conn.update(worksheet="Order", data=edited_df)
 # Print results.
 #for row in df.itertuples():
 #    st.write(f"{row.OrderContact}")
