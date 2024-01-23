@@ -4,8 +4,8 @@ import pandas as pd
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
-df = conn.read(worksheet="Order", usecols=[0,1,2,3,4,5,6,7,8],ttl=5)
-order_detail_df = conn.read(worksheet="OrderDetails", usecols=[0,1,2,3,4,5,6,7,8,9,10],ttl=5)
+df = conn.read(worksheet="Order", usecols=[0,1,2,3,4,5,6,7,8,9,10],ttl=5)
+order_detail_df = conn.read(worksheet="OrderDetails", usecols=[0,1,2,3,4,5,6,7,8],ttl=5)
 #order_detail_df = order_detail_df.style.highlight_null(props="color: transparent;") 
 
 #df = df[df['Order Number'] != " "]
