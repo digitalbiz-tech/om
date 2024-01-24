@@ -7,12 +7,15 @@ diff_df = ""
 #def update(conn,edited_df,df):
 #  print("in update")
 
-def change_state(df,edited_df):
-  diff_df = df.compare(edited_df)
-  print(diff_df)
-  os.write(1,b'Something was executed.\n')
+def change_state(df,edited_df,tab3):
+  diff_df = pd.merge(df, edited_df, on=cols, how = 'outer', indicator=True)
+  diff_df = diff_df[diff_df._merge != 'both'] # Filter out records from both
+  tab3.dataframe(diff_df)
+  #diff_df = df.compare(edited_df)
+  #print(diff_df)
+  #os.write(1,b'Something was executed.\n')
   st.session_state['df_value']=edited_df
-  return diff_df;
+  
   
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
@@ -149,7 +152,7 @@ edited_df = tab1.data_editor(
         ),
     },
   on_change=  change_state,
-  args=(df,edited_df),
+  args=(df,edited_df,tab3),
 )
 #update(conn, edited_df)
 #conn.update(worksheet="Order", data=edited_df)
