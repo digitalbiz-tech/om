@@ -3,11 +3,13 @@ from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 
 
-def update(conn,edited_df,column,notes):
+def update(conn,edited_df,df):
   print("in update")
 
-def change_state(edited_df):
-      st.session_state['df_value']=edited_df
+def change_state(df,edited_df):
+  diff_df = df.compare(edited_df)
+  print(diff_df)
+  st.session_state['df_value']=edited_df
   
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
@@ -143,9 +145,9 @@ edited_df = tab1.data_editor(
         ),
     },
   on_change=  change_state,
-  args=(edited_df,),
+  args=(df,edited_df),
 )
-update(conn, edited_df)
+#update(conn, edited_df)
 #conn.update(worksheet="Order", data=edited_df)
 # Print results.
 #for row in df.itertuples():
