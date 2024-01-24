@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 
-
+diff_df = ""
 #def update(conn,edited_df,df):
 #  print("in update")
 
@@ -10,6 +10,7 @@ def change_state(df,edited_df):
   diff_df = df.compare(edited_df)
   print(diff_df)
   st.session_state['df_value']=edited_df
+  return diff_df;
   
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
@@ -19,8 +20,9 @@ order_detail_df = conn.read(worksheet="OrderDetails", usecols=[0,1,2,3,4,5,6,7,8
 
 #df = df[df['Order Number'] != " "]
 #df = df.set_index(df.columns[0])
-
+diff_df = df
 tab1, tab2, tab3 = st.tabs(["Order", "Order Details", "Catalog"])
+tab3.dataframe(diff_df)
 tab2.write("Details of Order")
 tab2.dataframe(order_detail_df,
                   column_config={
