@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
+import os
 
 diff_df = ""
 #def update(conn,edited_df,df):
@@ -9,6 +10,7 @@ diff_df = ""
 def change_state(df,edited_df):
   diff_df = df.compare(edited_df)
   print(diff_df)
+  os.write(1,b'Something was executed.\n')
   st.session_state['df_value']=edited_df
   return diff_df;
   
