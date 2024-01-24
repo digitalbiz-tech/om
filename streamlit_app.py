@@ -3,8 +3,8 @@ from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 
 
-def update(conn,edited_df,df):
-  print("in update")
+#def update(conn,edited_df,df):
+#  print("in update")
 
 def change_state(df,edited_df):
   diff_df = df.compare(edited_df)
