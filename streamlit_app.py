@@ -8,7 +8,7 @@ diff_df = ""
 #  print("in update")
 
 def change_state(df,edited_df,tab3):
-  diff_df = pd.merge(df, edited_df, on=cols, how = 'outer', indicator=True)
+  diff_df = pd.merge(df, edited_df, on='cols', how = 'outer', indicator=True)
   diff_df = diff_df[diff_df._merge != 'both'] # Filter out records from both
   tab3.dataframe(diff_df)
   #diff_df = df.compare(edited_df)
