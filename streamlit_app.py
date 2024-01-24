@@ -2,6 +2,13 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 
+
+def update(conn,edited_df,column,notes):
+  print("in update")
+
+def change_state(edited_df):
+      st.session_state['df_value']=edited_df
+  
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
 df = conn.read(worksheet="Order", usecols=[0,1,2,3,4,5,6,7,8,9,10],ttl=5)
@@ -58,6 +65,11 @@ tab2.dataframe(order_detail_df,
 )
 
 tab1.write("Here's the list of the Orders made so far")
+
+if "df_value" not in st.session_state:
+  st.session_state.df_value = df
+edited_df=st.session_state['df_value']
+
 edited_df = tab1.data_editor(
     df,
     width = 1500,
@@ -130,9 +142,11 @@ edited_df = tab1.data_editor(
             disabled=True,
         ),
     },
+  on_change=  change_state,
+  args=(edited_df,),
 )
-
-conn.update(worksheet="Order", data=edited_df)
+update(conn, edited_df)
+#conn.update(worksheet="Order", data=edited_df)
 # Print results.
 #for row in df.itertuples():
 #    st.write(f"{row.OrderContact}")
