@@ -10,10 +10,10 @@ diff_df = ""
 st.set_page_config(page_title="Order Management", layout="wide")
 
 def change_state(df,edited_df,tab3):
-  df_diff = pd.concat([df,edited_df]).drop_duplicates(keep=False)
+  #df_diff = pd.concat([df,edited_df]).drop_duplicates(keep=False)
   #diff_df = pd.merge(df, edited_df, on='Order Number', how = 'inner', indicator=True)
   #diff_df = diff_df[diff_df._merge != 'both'] # Filter out records from both
-  tab3.dataframe(diff_df)
+  tab3.dataframe(edited_df)
   #diff_df = df.compare(edited_df)
   #print(diff_df)
   #os.write(1,b'Something was executed.\n')
