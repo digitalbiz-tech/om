@@ -7,6 +7,8 @@ diff_df = ""
 #def update(conn,edited_df,df):
 #  print("in update")
 
+st.set_page_config(page_title="Order Management", layout="wide")
+
 def change_state(df,edited_df,tab3):
   df_diff = pd.concat([df,edited_df]).drop_duplicates(keep=False)
   #diff_df = pd.merge(df, edited_df, on='Order Number', how = 'inner', indicator=True)
