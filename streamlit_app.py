@@ -84,10 +84,11 @@ edited_df=st.session_state['df_value']
 
 edited_df = tab1.data_editor(
     df,
+    key = "Order Number",
     width = 1500,
     column_config={
         "Order Number": st.column_config.NumberColumn(
-            "Order ID",
+            "Order Number",
             help="Order ID",
             width="small",
             format="%d",
