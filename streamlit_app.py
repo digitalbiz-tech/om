@@ -9,7 +9,8 @@ diff_df = ""
 
 st.set_page_config(page_title="Order Management", layout="wide")
 
-def change_state(df,edited_df,tab3):
+def change_state(df,edited_df,tab3,key):
+  tab3.write(key)
   #df_diff = pd.concat([df,edited_df]).drop_duplicates(keep=False)
   #diff_df = pd.merge(df, edited_df, on='Order Number', how = 'inner', indicator=True)
   #diff_df = diff_df[diff_df._merge != 'both'] # Filter out records from both
@@ -156,7 +157,7 @@ edited_df = tab1.data_editor(
         ),
     },
   on_change=  change_state,
-  args=(df,edited_df,tab3),
+  args=(df,edited_df,tab3,key),
 )
 #update(conn, edited_df)
 #conn.update(worksheet="Order", data=edited_df)
