@@ -9,7 +9,7 @@ diff_df = ""
 
 st.set_page_config(page_title="Order Management", layout="wide")
 
-def change_state(df,edited_df,tab3,key):
+def change_state(df,edited_df,tab3):
   tab3.write(st.session_state)
   #df_diff = pd.concat([df,edited_df]).drop_duplicates(keep=False)
   #diff_df = pd.merge(df, edited_df, on='Order Number', how = 'inner', indicator=True)
